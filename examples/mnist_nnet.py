@@ -60,8 +60,8 @@ def train(inputs, targets):
                        layer2_dropout, batcher=batcher)
 
     # Output layer weights and biases, with random initializations.
-    W3 = kayak.Parameter( 0.1*npr.randn( layer2_sz, 10 ))
-    B3 = kayak.Parameter( 0.1*npr.randn(1, 10) )
+    W3 = kayak.Parameter( 0.1*npr.randn( layer2_sz, targets.shape[1] ))
+    B3 = kayak.Parameter( 0.1*npr.randn(1, targets.shape[1]) )
 
     # Output layer.
     Y = kayak.LogSoftMax( kayak.ElemAdd(kayak.MatMult(H2, W3), B3) )
